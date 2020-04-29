@@ -1,0 +1,8 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- 01-networkpolicy-deny-other-namespaces.yaml
+- 02-networkpolicy-allow-router-ingress.yaml
+- 03-compute-quota.yaml
+- 04-limit-range.yaml
+- 05-jenkins-rolebinding.yaml

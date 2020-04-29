@@ -1,0 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: argocd
+resources:
+- 00-demo-config-project.yaml
+- 00-demo-apps-project.yaml
+- 01-cicd-admin-config-app.yaml
+- 02-petclinic-dev-admin-config-app.yaml
+- 03-petclinic-test-admin-config-app.yaml

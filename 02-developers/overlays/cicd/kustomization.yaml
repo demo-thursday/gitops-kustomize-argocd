@@ -1,0 +1,8 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: cicd
+bases:
+- github.com/redhat-canada-gitops/10-devtools/jenkins2/overlays/m2-pvc?ref=master
+# If you want to use Nexus2 as well, delete the line above and uncomment the lines below.
+#- github.com/redhat-canada-gitops/10-devtools/jenkins2/overlays/nexus2-settings?ref=master
+#- github.com/redhat-canada-gitops/10-devtools/nexus2/base?ref=master

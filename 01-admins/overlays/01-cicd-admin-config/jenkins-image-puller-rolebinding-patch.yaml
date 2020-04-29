@@ -1,0 +1,12 @@
+- op: add
+  path: /subjects/-
+  value:
+    kind: ServiceAccount
+    name: petclinic
+    namespace: demo-dev
+- op: add
+  path: /subjects/-
+  value:
+    kind: ServiceAccount
+    name: petclinic
+    namespace: demo-test

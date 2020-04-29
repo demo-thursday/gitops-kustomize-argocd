@@ -1,0 +1,40 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  labels:
+    app: petclinic
+    name: petclinic-jenkins-pipeline
+  name: petclinic-jenkins-pipeline
+spec:
+  failedBuildsHistoryLimit: 5
+  nodeSelector: {}
+  output: {}
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    git:
+      ref: gitops-demo
+      uri: https://github.com/pittar/spring-petclinic.git
+    type: Git
+  strategy:
+    jenkinsPipelineStrategy:
+      env:
+      - name: APP_NAME
+        value: petclinic
+      - name: GIT_SOURCE_URL
+        value: https://github.com/pittar/spring-petclinic.git
+      - name: GIT_SOURCE_REF
+        value: gitops-demo
+      jenkinsfilePath: Jenkinsfile
+    type: JenkinsPipeline
+  successfulBuildsHistoryLimit: 5
+  triggers:
+  - github:
+      secret: pPSVjgdJuYEeQGQIfPhsk3DpjbKRSSP0wu0OAo7P
+    type: GitHub
+  - generic:
+      secret: UrcVCFHuN0vnvn8YU7Bcv02bM6gQU21MN7Qeifja
+    type: Generic
+status:
+  lastVersion: 0
